@@ -1,0 +1,20 @@
+<svg viewBox="0 0 340 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AnimPatricia — Écouter leur silence, comprendre leur cœur">
+  <defs>
+    <linearGradient id="logoGoldFull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4B876"/>
+      <stop offset="100%" stop-color="#B8964F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Médaillon -->
+  <circle cx="45" cy="45" r="38" fill="#FAF7F0" stroke="#2C4A3B" stroke-width="1.5"/>
+  <path d="M15,63 C28,44 62,44 75,24" fill="none" stroke="url(#logoGoldFull)" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+  <ellipse cx="32" cy="34" rx="6" ry="8" fill="url(#logoGoldFull)" transform="rotate(-16 32 34)"/>
+  <ellipse cx="45" cy="27" rx="6.5" ry="9" fill="url(#logoGoldFull)"/>
+  <ellipse cx="58" cy="34" rx="6" ry="8" fill="url(#logoGoldFull)" transform="rotate(16 58 34)"/>
+  <ellipse cx="45" cy="53" rx="14.5" ry="11.5" fill="#2C4A3B"/>
+
+  <!-- Wordmark -->
+  <text x="104" y="52" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="600" font-size="36" fill="#2C4A3B">AnimPatricia</text>
+  <text x="105" y="70" font-family="'Jost', Arial, sans-serif" font-size="10.5" letter-spacing="2.2" fill="#B8964F">COMMUNICATION ANIMALE</text>
+</svg>
