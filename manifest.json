@@ -1,0 +1,10 @@
+{
+  "name": "AnimPatricia",
+  "short_name": "AnimPatricia",
+  "description": "Communication animale et accompagnement bienveillant pour vos compagnons.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F0",
+  "theme_color": "#2C4A3B",
+  "icons": []
+}
