@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.createElement('div');
     card.className = 'testimonial-card';
     card.innerHTML = `
-      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-tag">Exemple illustratif</div>
       <p class="testimonial-text">"${t.text}"</p>
       <div class="testimonial-person">
         <div class="testimonial-avatar" style="background:linear-gradient(135deg,var(--sage),var(--forest));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-style:italic;">${t.name.charAt(0)}</div>
@@ -218,17 +218,40 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Formulaire de contact ---------- */
   const form = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
       formStatus.textContent = 'Merci de compléter tous les champs obligatoires.';
       formStatus.className = 'form-status error';
       return;
     }
-    formStatus.textContent = 'Merci ! Votre message a bien été envoyé, je reviens vers vous rapidement.';
-    formStatus.className = 'form-status success';
-    showToast('Message envoyé avec succès 🐾');
-    form.reset();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    formStatus.textContent = 'Envoi en cours...';
+    formStatus.className = 'form-status';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formStatus.textContent = 'Merci ! Votre message a bien été envoyé, je reviens vers vous rapidement.';
+        formStatus.className = 'form-status success';
+        showToast('Message envoyé avec succès 🐾');
+        form.reset();
+      } else {
+        throw new Error('Réponse du serveur invalide');
+      }
+    } catch (err) {
+      formStatus.textContent = "L'envoi a échoué. Vous pouvez aussi me contacter directement par WhatsApp ou par téléphone ci-dessus.";
+      formStatus.className = 'form-status error';
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 
   const newsletterForm = document.getElementById('newsletterForm');
